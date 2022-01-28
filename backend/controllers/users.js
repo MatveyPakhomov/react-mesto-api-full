@@ -34,7 +34,7 @@ function login(req, res, next) {
           maxAge: 3600000 * 24 * 7,
           secure: true,
           sameSite: "none",
-          domain: "pakhomov.students.nomoredomains.rocks",
+          domain: ".nomoredomains.rocks",
         })
         .send({ message: "Аутентификация пройдена" })
         .end();
