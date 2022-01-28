@@ -209,9 +209,9 @@ export default function App() {
       });
   }
 
-  function getAuthUserInfo(jwt) {
+  function getAuthUserInfo() {
     auth
-      .getContent(jwt)
+      .getContent()
       .then((res) => {
         setLoggedIn(true);
         navigate("/");

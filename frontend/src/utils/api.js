@@ -75,7 +75,7 @@ const api = new Api({
       ? "https://api.pakhomov.nomoredomains.rocks"
       : "http://localhost:3000",
   headers: {
-    Authorization: `${document.cookie.search("jwt").value}`,
+    Authorization: `Bearer ${document.cookie.search("jwt").value}`,
     "Content-Type": "application/json",
   },
 });
