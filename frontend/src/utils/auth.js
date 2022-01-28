@@ -33,14 +33,14 @@ export const authorize = (email, password) => {
   }).then(checkResponse);
 };
 
-export const getContent = (jwt) => {
+export const getContent = () => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     credentials: "include",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${document.cookie.search("jwt").value}`,
     },
   })
     .then(checkResponse)
