@@ -225,7 +225,7 @@ export default function App() {
   }
 
   React.useEffect(() => {
-    const jwt = document.cookie.valueOf("jwt");
+    const jwt = document.cookie.slice(4);
     console.log(document.cookie, typeof jwt);
     if (jwt) {
       getAuthUserInfo(jwt);
