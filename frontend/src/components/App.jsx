@@ -44,9 +44,9 @@ export default function App() {
     }
   }, [loggedIn]);
 
-  // React.useEffect(() => {
-  //   checkToken();
-  // });
+  React.useEffect(() => {
+    checkToken();
+  });
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
@@ -209,57 +209,57 @@ export default function App() {
       });
   }
 
-  function getAuthUserInfo() {
-    auth
-      .getContent()
-      .then((res) => {
-        setLoggedIn(true);
-        navigate("/");
-        setUserData({
-          email: res.data.email,
-          title: "Выйти",
-          link: "/sign-in",
-        });
-      })
-      .catch((err) => console.log(err));
-  }
-
-  React.useEffect(() => {
-    const jwt = document.cookie.valueOf("jwt");
-    console.log(document.cookie);
-    if (jwt) {
-      getAuthUserInfo(jwt);
-    }
-    //пока думаю как решить эту проблему
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loggedIn]);
-
-  // function checkToken() {
-  //   const jwt = document.cookie.valueOf("jwt");
-  //   if (jwt) {
-  //     console.log(jwt);
-  //     auth
-  //       .getContent(jwt)
-  //       .then((res) => {
-  //         setUserData({
-  //           email: res.data.email,
-  //           title: "Выйти",
-  //           link: "/sign-in",
-  //         });
-  //         setLoggedIn(true);
-  //         navigate("/");
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
+  // function getAuthUserInfo() {
+  //   auth
+  //     .getContent()
+  //     .then((res) => {
+  //       setLoggedIn(true);
+  //       navigate("/");
+  //       setUserData({
+  //         email: res.data.email,
+  //         title: "Выйти",
+  //         link: "/sign-in",
   //       });
-  //   }
+  //     })
+  //     .catch((err) => console.log(err));
   // }
 
   // React.useEffect(() => {
-  //   if (document.cookie.includes("jwt=")) {
-  //     navigate("/");
+  //   const jwt = document.cookie.valueOf("jwt");
+  //   console.log(document.cookie);
+  //   if (jwt) {
+  //     getAuthUserInfo(jwt);
   //   }
-  // }, [navigate]);
+  //   //пока думаю как решить эту проблему
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [loggedIn]);
+
+  function checkToken() {
+    const jwt = document.cookie.valueOf("jwt");
+    if (jwt) {
+      console.log(jwt);
+      auth
+        .getContent(jwt)
+        .then((res) => {
+          setUserData({
+            email: res.data.email,
+            title: "Выйти",
+            link: "/sign-in",
+          });
+          setLoggedIn(true);
+          navigate("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
+
+  React.useEffect(() => {
+    if (document.cookie.includes("jwt=")) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   function handleSignOut() {
     localStorage.removeItem("token");
