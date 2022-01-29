@@ -189,7 +189,6 @@ export default function App() {
     auth
       .getContent()
       .then((res) => {
-        console.log(res);
         setLoggedIn(true);
         navigate("/");
         setUserData({
