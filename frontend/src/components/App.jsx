@@ -138,9 +138,9 @@ export default function App() {
       .catch((err) => console.log(err));
   }
 
-  function handleAddPlaceSubmit(data) {
+  function handleAddPlaceSubmit(props) {
     api
-      .addNewCard(data)
+      .addNewCard(props)
       .then((newCard) => {
         setCards(() => [cardConfig(newCard), ...cards]);
         closeAllPopups();
