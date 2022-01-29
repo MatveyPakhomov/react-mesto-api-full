@@ -12,6 +12,7 @@
 7. RegEx
 8. Validator
 9. Controllers & Routes
+10. HTTPS
 
 ### Сайт доступен по адресу https://pakhomov.students.nomoredomains.rocks/
 ## hello world

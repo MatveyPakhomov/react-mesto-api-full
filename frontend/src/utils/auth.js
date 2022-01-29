@@ -40,7 +40,6 @@ export const getContent = () => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${document.cookie.slice(4)}`,
     },
   })
     .then(checkResponse)
@@ -48,7 +47,7 @@ export const getContent = () => {
 };
 
 export const logout = () => {
-  return fetch(`${this.baseUrl}/logout`, {
+  return fetch(`${BASE_URL}/logout`, {
     method: "GET",
     credentials: "include",
     headers: {

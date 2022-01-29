@@ -206,8 +206,7 @@ export default function App() {
     if (jwt) {
       getAuthUserInfo();
     }
-    //пока думаю как решить эту проблему
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedIn]);
 
   function handleSignOut() {
