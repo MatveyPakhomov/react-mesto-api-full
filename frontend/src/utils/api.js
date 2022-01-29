@@ -64,11 +64,13 @@ class Api {
     if (!isLiked) {
       return fetch(this.url + `/cards/likes/${cardId}`, {
         method: "PUT",
+        credentials: "include",
         headers: this.headers,
       }).then(this._checkResponse);
     } else {
       return fetch(this.url + `/cards/likes/${cardId}`, {
         method: "DELETE",
+        credentials: "include",
         headers: this.headers,
       }).then(this._checkResponse);
     }

@@ -211,12 +211,13 @@ export default function App() {
   }, [loggedIn]);
 
   function handleSignOut() {
-    localStorage.removeItem("token");
-    setLoggedIn(false);
-    navigate("/sign-in");
-    setUserData({
-      title: "Регистрация",
-      link: "/sign-up",
+    auth.logout().then(() => {
+      setLoggedIn(false);
+      navigate("/sign-in");
+      setUserData({
+        title: "Регистрация",
+        link: "/sign-up",
+      });
     });
   }
 
