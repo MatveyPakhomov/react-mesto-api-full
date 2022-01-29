@@ -44,10 +44,6 @@ export default function App() {
     }
   }, [loggedIn]);
 
-  // React.useEffect(() => {
-  //   checkToken();
-  // });
-
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
   }
@@ -169,27 +165,6 @@ export default function App() {
       });
   }
 
-  // const handleLogin = ({ password, email }) => {
-  //   auth
-  //     .login(password, email)
-  //     .then((res) => {
-  //       console.log(res.message);
-  //       if (res.message === "Вход совершен успешно") {
-  //         checkToken()
-  //         setIsLoggedIn(true);
-  //         history.push("/");
-  //         setUserEmail(email);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       setIsInfoTooltipOpen(true);
-  //       setMessage({
-  //         image: failedReg,
-  //         text: "Что-то пошло не так! Попробуйте ещё раз.",
-  //       });
-  //     });
-  // };
-
   function handleRegister(email, password) {
     return auth
       .register(email, password)
@@ -232,33 +207,6 @@ export default function App() {
     //пока думаю как решить эту проблему
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedIn]);
-
-  // function checkToken() {
-  //   const jwt = document.cookie.valueOf("jwt");
-  //   if (jwt) {
-  //     console.log(jwt);
-  //     auth
-  //       .getContent(jwt)
-  //       .then((res) => {
-  //         setUserData({
-  //           email: res.data.email,
-  //           title: "Выйти",
-  //           link: "/sign-in",
-  //         });
-  //         setLoggedIn(true);
-  //         navigate("/");
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // }
-
-  // React.useEffect(() => {
-  //   if (document.cookie.includes("jwt=")) {
-  //     navigate("/");
-  //   }
-  // }, [navigate]);
 
   function handleSignOut() {
     localStorage.removeItem("token");
