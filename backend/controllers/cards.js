@@ -3,6 +3,13 @@ const NotFoundError = require("../errors/not-found-err");
 const BadRequestError = require("../errors/bad-request-err");
 const ForbiddenError = require("../errors/forbidden-err");
 
+// const checkCard = (card, res) => {
+//   if (!card) {
+//     throw new NotFoundError("Нет карточки с таким id");
+//   }
+//   res.send(card);
+// };
+
 function getCards(req, res, next) {
   return Card.find({})
     .populate(["owner", "likes"])
@@ -62,6 +69,26 @@ function deleteCard(req, res, next) {
     });
 }
 
+// module.exports.likeCard = (req, res, next) => {
+//   Card.findByIdAndUpdate(
+//     req.params.cardId,
+//     { $addToSet: { likes: req.user._id } },
+//     { new: true }
+//   )
+//     .then((card) => checkCard(card, res))
+//     .catch(next);
+// };
+
+// module.exports.dislikeCard = (req, res, next) => {
+//   Card.findByIdAndUpdate(
+//     req.params.cardId,
+//     { $pull: { likes: req.user._id } },
+//     { new: true }
+//   )
+//     .then((card) => checkCard(card, res))
+//     .catch(next);
+// };
+
 function likeCard(req, res, next) {
   const ownerId = req.user._id;
 
@@ -71,11 +98,11 @@ function likeCard(req, res, next) {
     { new: true }
   )
     .populate(["owner", "likes"])
-    .then((like) => {
-      if (!like) {
+    .then((card) => {
+      if (!card) {
         throw new NotFoundError("Передан несуществующий _id карточки.");
       }
-      res.send({ likes: [like] });
+      res.send(card);
     })
     .catch((err) => {
       if (err.name === "CastError") {
@@ -98,11 +125,11 @@ function dislikeCard(req, res, next) {
     { new: true }
   )
     .populate(["owner", "likes"])
-    .then((like) => {
-      if (!like) {
+    .then((card) => {
+      if (!card) {
         throw new NotFoundError("Передан несуществующий _id карточки.");
       }
-      res.send({ likes: [like] });
+      res.send(card);
     })
     .catch((err) => {
       if (err.name === "CastError") {

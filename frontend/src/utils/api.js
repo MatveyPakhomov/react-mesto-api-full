@@ -61,28 +61,12 @@ class Api {
   }
 
   changeLikeCardStatus(cardId, isLiked) {
-    if (!isLiked) {
-      return fetch(this.url + `/cards/likes/${cardId}`, {
-        method: "PUT",
-        credentials: "include",
-        headers: this.headers,
-      }).then(this._checkResponse);
-    } else {
-      return fetch(this.url + `/cards/likes/${cardId}`, {
-        method: "DELETE",
-        credentials: "include",
-        headers: this.headers,
-      }).then(this._checkResponse);
-    }
+    return fetch(this.url + `/cards/likes/${cardId}`, {
+      method: isLiked ? "DELETE" : "PUT",
+      credentials: "include",
+      headers: this.headers,
+    }).then(this._checkResponse);
   }
-
-  // changeLikeCardStatus(cardId, isLiked) {
-  //   return fetch(this.url + `/cards/likes/${cardId}`, {
-  //     method: isLiked ? "DELETE" : "PUT",
-  //     credentials: "include",
-  //     headers: this.headers,
-  //   }).then(this._checkResponse);
-  // }
 }
 
 const api = new Api({
