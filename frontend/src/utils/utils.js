@@ -8,7 +8,6 @@ export const validationConfig = {
 };
 
 export function cardConfig(data) {
-  console.log(data);
   return {
     ownerId: data.owner._id,
     cardId: data._id,
