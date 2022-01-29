@@ -74,7 +74,7 @@ function likeCard(req, res, next) {
       if (!like) {
         throw new NotFoundError("Передан несуществующий _id карточки.");
       }
-      res.send({ data: like });
+      res.send(like);
     })
     .catch((err) => {
       if (err.name === "CastError") {
