@@ -35,6 +35,7 @@ export default function Login(props) {
             value={state.email}
             className="login__input"
             placeholder="Email"
+            autocomplete="off"
             onChange={handleChange}
           />
           <input
@@ -45,6 +46,7 @@ export default function Login(props) {
             value={state.password}
             className="login__input"
             placeholder="Пароль"
+            autocomplete="off"
             onChange={handleChange}
           />
           <button type="submit" className="login__submit-button">
