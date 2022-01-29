@@ -32,7 +32,7 @@ function deleteCard(req, res, next) {
   const userId = req.user._id;
 
   return Card.findById(req.params.cardId)
-    .populate(["owner"])
+    .populate(["owner", "likes"])
     .then((data) => {
       if (!data) {
         throw new NotFoundError("Карточка с указанным _id не найдена.");
@@ -70,6 +70,7 @@ function likeCard(req, res, next) {
     { $addToSet: { likes: ownerId } }, // добавить _id в массив, если его там нет
     { new: true }
   )
+    .populate(["owner", "likes"])
     .then((like) => {
       if (!like) {
         throw new NotFoundError("Передан несуществующий _id карточки.");
@@ -96,6 +97,7 @@ function dislikeCard(req, res, next) {
     { $pull: { likes: ownerId } }, // убрать _id из массива
     { new: true }
   )
+    .populate(["owner", "likes"])
     .then((like) => {
       if (!like) {
         throw new NotFoundError("Передан несуществующий _id карточки.");
