@@ -117,6 +117,7 @@ export default function App() {
       .then((newCard) => {
         setCards((state) =>
           state.map((item) => {
+            console.log(123, item);
             return item.cardId === props.cardId ? cardConfig(newCard) : item;
           })
         );

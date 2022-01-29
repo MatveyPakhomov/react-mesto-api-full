@@ -123,7 +123,7 @@ function updateProfile(req, res, next) {
       if (!user) {
         throw new NotFoundError("Пользователь с указанным _id не найден.");
       }
-      res.send({ user });
+      res.send(user);
     })
     .catch((err) => {
       if (err.name === "ValidationError") {
@@ -153,7 +153,7 @@ function updateAvatar(req, res, next) {
       if (!avatar) {
         throw new NotFoundError("Пользователь с указанным _id не найден.");
       }
-      res.send({ avatar });
+      res.send(avatar);
     })
     .catch((err) => {
       if (err.name === "ValidationError") {
