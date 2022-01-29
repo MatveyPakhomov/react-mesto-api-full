@@ -206,17 +206,26 @@ export default function App() {
     if (jwt) {
       getAuthUserInfo();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedIn]);
 
   function handleSignOut() {
-    auth.logout().then(() => {
-      setLoggedIn(false);
-      navigate("/sign-in");
-      setUserData({
-        title: "Регистрация",
-        link: "/sign-up",
+    const jwt = document.cookie.slice(4);
+
+    if (jwt) {
+      auth.logout().then(() => {
+        setLoggedIn(false);
+        navigate("/sign-in");
+        setUserData({
+          title: "Регистрация",
+          link: "/sign-up",
+        });
       });
+    }
+
+    setUserData({
+      title: "Регистрация",
+      link: "/sign-up",
     });
   }
 
