@@ -75,7 +75,7 @@ function likeCard(req, res, next) {
       if (!like) {
         throw new NotFoundError("Передан несуществующий _id карточки.");
       }
-      res.send({ like });
+      res.send({ likes: [like] });
     })
     .catch((err) => {
       if (err.name === "CastError") {
@@ -102,7 +102,7 @@ function dislikeCard(req, res, next) {
       if (!like) {
         throw new NotFoundError("Передан несуществующий _id карточки.");
       }
-      res.send({ like });
+      res.send({ likes: [like] });
     })
     .catch((err) => {
       if (err.name === "CastError") {
