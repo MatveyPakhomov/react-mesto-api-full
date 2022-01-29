@@ -67,6 +67,17 @@ app.post(
   createUser
 );
 
+app.get("/logout", (req, res, next) => {
+  res
+    .clearCookie("jwt", {
+      secure: true,
+      sameSite: "none",
+      domain: ".nomoredomains.rocks",
+    })
+    .send({ message: "Выход совершен успешно" });
+  next();
+});
+
 app.use("/", auth, user);
 app.use("/", auth, card);
 
