@@ -33,7 +33,7 @@ export default function Register(props) {
           id="email"
           name="email"
           type="email"
-          value={state.email}
+          // value={state.email}
           className="register__input"
           placeholder="Email"
           onChange={handleChange}
@@ -43,7 +43,7 @@ export default function Register(props) {
           id="password"
           name="password"
           type="password"
-          value={state.password}
+          // value={state.password}
           className="register__input"
           placeholder="Пароль"
           onChange={handleChange}

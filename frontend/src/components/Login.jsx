@@ -32,7 +32,7 @@ export default function Login(props) {
             id="email"
             name="email"
             type="email"
-            value={state.email}
+            // value={state.email}
             className="login__input"
             placeholder="Email"
             autocomplete="off"
@@ -43,7 +43,7 @@ export default function Login(props) {
             id="password"
             name="password"
             type="password"
-            value={state.password}
+            // value={state.password}
             className="login__input"
             placeholder="Пароль"
             autocomplete="off"
