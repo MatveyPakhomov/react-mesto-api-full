@@ -226,9 +226,8 @@ export default function App() {
 
   React.useEffect(() => {
     const jwt = document.cookie.slice(4);
-    console.log(document.cookie, typeof jwt);
     if (jwt) {
-      getAuthUserInfo(jwt);
+      getAuthUserInfo();
     }
     //пока думаю как решить эту проблему
     // eslint-disable-next-line react-hooks/exhaustive-deps
