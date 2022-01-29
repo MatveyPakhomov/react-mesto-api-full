@@ -20,7 +20,7 @@ export default function Login(props) {
     // сюда добавим логику обработки формы регистрации
     const { email, password } = state;
     props.onLogin(email, password);
-    document.querySelector(".login__form").reset();
+    setState({ email: "", password: "" });
   }
 
   return (
