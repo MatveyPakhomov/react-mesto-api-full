@@ -16,7 +16,6 @@ function createCard(req, res, next) {
 
   return (
     Card.create({ name, link, owner: { _id: ownerId } })
-      // .populate(["owner", "likes"])
       .then((card) => res.send({ card }))
       .catch((err) => {
         if (err.name === "ValidationError") {
