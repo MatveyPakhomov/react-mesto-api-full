@@ -20,13 +20,14 @@ export default function Login(props) {
     // сюда добавим логику обработки формы регистрации
     const { email, password } = state;
     props.onLogin(email, password);
+    document.querySelector("login__form").reset();
   }
 
   return (
     <div className="login page__login">
       <section className="login__section">
         <h2 className="login__title">Вход</h2>
-        <form className="login__form" onSubmit={handleSubmit} autoComplete="off">
+        <form className="login__form" onSubmit={handleSubmit}>
           <input
             required
             id="email"
