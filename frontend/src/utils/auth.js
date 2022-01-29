@@ -47,7 +47,7 @@ export const getContent = () => {
 };
 
 export const logout = () => {
-  return fetch(`${BASE_URL}/logout`, {
+  return fetch(`${BASE_URL}/signin`, {
     method: "GET",
     credentials: "include",
     headers: {

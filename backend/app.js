@@ -73,7 +73,7 @@ app.post(
   createUser
 );
 
-app.get("/logout", (req, res, next) => {
+app.get("/signin", (req, res, next) => {
   res
     .clearCookie("jwt", {
       secure: true,
