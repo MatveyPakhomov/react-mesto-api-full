@@ -11,10 +11,10 @@ function getCards(req, res, next) {
 }
 
 function createCard(req, res, next) {
-  const ownerId = req.user._id;
+  // const ownerId = req.user._id;
   const { name, link } = req.body;
 
-  return Card.create({ name, link, owner: { _id: ownerId } })
+  return Card.create({ name, link, owner: req.user._id })
     // .populate(["owner", "likes"])
     .then((card) => res.send(card))
     .catch((err) => {
