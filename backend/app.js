@@ -26,7 +26,7 @@ app.use(
     origin: [
       "https://pakhomov.students.nomoredomains.rocks",
       "http://pakhomov.students.nomoredomains.rocks",
-      "localhost:3000",
+      "http:localhost:3000",
     ],
     methods: ["OPTIONS", "GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
     preflightContinue: false,
