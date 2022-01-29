@@ -20,7 +20,6 @@ export default function Login(props) {
     // сюда добавим логику обработки формы регистрации
     const { email, password } = state;
     props.onLogin(email, password);
-    setState({ email: "", password: "" });
   }
 
   return (
