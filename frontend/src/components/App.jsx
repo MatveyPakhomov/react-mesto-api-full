@@ -192,7 +192,7 @@ export default function App() {
         setLoggedIn(true);
         navigate("/");
         setUserData({
-          email: res.data.email,
+          email: res.email,
           title: "Выйти",
           link: "/sign-in",
         });
