@@ -26,16 +26,15 @@ export default function Login(props) {
     <div className="login page__login">
       <section className="login__section">
         <h2 className="login__title">Вход</h2>
-        <form className="login__form" onSubmit={handleSubmit}>
+        <form className="login__form" onSubmit={handleSubmit} autoComplete="off">
           <input
             required
             id="email"
             name="email"
             type="email"
-            // value={state.email}
+            value={state.email}
             className="login__input"
             placeholder="Email"
-            autocomplete="off"
             onChange={handleChange}
           />
           <input
@@ -43,10 +42,8 @@ export default function Login(props) {
             id="password"
             name="password"
             type="password"
-            // value={state.password}
+            value={state.password}
             className="login__input"
-            placeholder="Пароль"
-            autocomplete="off"
             onChange={handleChange}
           />
           <button type="submit" className="login__submit-button">
