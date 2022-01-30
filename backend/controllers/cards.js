@@ -16,7 +16,6 @@ function createCard(req, res, next) {
 
   return Card.create({ name, link, owner: { _id: ownerId } })
     .then((data) => {
-      console.info(data);
       Card.findById(data._id)
         .populate(["owner", "likes"])
         .then((card) => res.send(card));
