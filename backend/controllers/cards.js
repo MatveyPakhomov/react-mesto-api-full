@@ -14,20 +14,19 @@ function createCard(req, res, next) {
   const ownerId = req.user._id;
   const { name, link } = req.body;
 
-  return (
-    Card.create({ name, link, owner: { _id: ownerId } })
-      .then((card) => res.send({ card }))
-      .catch((err) => {
-        if (err.name === "ValidationError") {
-          next(
-            new BadRequestError(
-              `Переданы некорректные данные при создании карточки. ${err.message}`
-            )
-          );
-        }
-        next(err);
-      })
-  );
+  return Card.create({ name, link, owner: { _id: ownerId } })
+    .populate(["owner", "likes"])
+    .then((card) => res.send({ card }))
+    .catch((err) => {
+      if (err.name === "ValidationError") {
+        next(
+          new BadRequestError(
+            `Переданы некорректные данные при создании карточки. ${err.message}`
+          )
+        );
+      }
+      next(err);
+    });
 }
 
 function deleteCard(req, res, next) {
