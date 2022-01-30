@@ -44,6 +44,7 @@ export default function Login(props) {
             type="password"
             value={state.password}
             className="login__input"
+            placeholder="Password"
             onChange={handleChange}
           />
           <button type="submit" className="login__submit-button">
