@@ -15,4 +15,7 @@
 10. HTTPS
 
 ### Сайт доступен по адресу https://pakhomov.students.nomoredomains.rocks/
+### домен сервера - api.pakhomov.nomoredomains.rocks
+### публичный IP - 51.250.25.245
+
 ## hello world
