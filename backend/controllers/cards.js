@@ -16,7 +16,7 @@ function createCard(req, res, next) {
 
   return Card.create({ name, link, owner: { _id: ownerId } })
     .then((card) => {
-      console.log(card);
+      console.info(card);
       res.send(card);
     })
     .catch((err) => {
