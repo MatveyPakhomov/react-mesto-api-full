@@ -15,10 +15,11 @@ function createCard(req, res, next) {
   const { name, link } = req.body;
 
   return Card.create({ name, link, owner: { _id: ownerId } })
-    // я пока не понял как заставить .populate работать здесь
-    // или как другим путем получить id владельца для отображения кнопки удаления
-    .then((card) => {
-      res.send(card);
+    .then((data) => {
+      console.log(data);
+      Card.findById(data._id)
+        .populate(["owner", "likes"])
+        .then((card) => res.send(card));
     })
     .catch((err) => {
       if (err.name === "ValidationError") {
