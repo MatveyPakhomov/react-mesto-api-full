@@ -12,12 +12,11 @@ function getCards(req, res, next) {
 
 function createCard(req, res, next) {
   const ownerId = req.user._id;
-  console.log(ownerId);
   const { name, link } = req.body;
 
   return Card.create({ name, link, owner: { _id: ownerId } })
     .then((card) => {
-      res.send(card);
+      res.send(card, ownerId);
     })
     .catch((err) => {
       if (err.name === "ValidationError") {
