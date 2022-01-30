@@ -15,8 +15,8 @@ function createCard(req, res, next) {
   const { name, link } = req.body;
 
   return Card.create({ name, link, owner: { _id: ownerId } })
-    .populate(["owner", "likes"])
-    .execPopulate()
+    // я пока не понял как заставить .populate работать здесь
+    // или как другим путем получить id владельца для отображения кнопки удаления
     .then((card) => {
       res.send(card);
     })
