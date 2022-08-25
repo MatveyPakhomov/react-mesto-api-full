@@ -13,9 +13,3 @@
 8. Validator
 9. Controllers & Routes
 10. HTTPS
-
-### Сайт доступен по адресу https://pakhomov.students.nomoredomains.rocks/
-### домен сервера - api.pakhomov.nomoredomains.rocks
-### публичный IP - 84.252.141.195
-
-## hello world
