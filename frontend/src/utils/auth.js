@@ -1,7 +1,7 @@
 export const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://api.pakhomov.nomoredomains.rocks"
-    : "http://localhost:3000";
+    : "http://localhost:3001";
 
 function checkResponse(res) {
   if (res.ok) {

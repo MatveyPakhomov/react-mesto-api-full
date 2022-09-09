@@ -73,7 +73,7 @@ const api = new Api({
   baseUrl:
     process.env.NODE_ENV === "production"
       ? "https://api.pakhomov.nomoredomains.rocks"
-      : "http://localhost:3000",
+      : "http://localhost:3001",
   headers: {
     Authorization: `Bearer ${document.cookie.slice(4)}`,
     "Content-Type": "application/json",
