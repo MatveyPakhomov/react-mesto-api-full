@@ -15,7 +15,7 @@ const { isValidURL } = require("./utils/methods");
 const NotFoundError = require("./errors/not-found-err");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
 
 mongoose.connect("mongodb://localhost:27017/mestodb");
@@ -26,7 +26,7 @@ app.use(
     origin: [
       "https://pakhomov.students.nomoredomains.rocks",
       "http://pakhomov.students.nomoredomains.rocks",
-      "http:localhost:3000",
+      "http://localhost:3000",
     ],
     methods: ["OPTIONS", "GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
     preflightContinue: false,
@@ -78,7 +78,8 @@ app.get("/signin", (req, res, next) => {
     .clearCookie("jwt", {
       secure: true,
       sameSite: "none",
-      domain: ".nomoredomains.rocks",
+      // добавить домен, когда перенесу репозиторий на него
+      // domain: ".nomoredomains.rocks",
     })
     .send({ message: "Выход совершен успешно" });
   next();

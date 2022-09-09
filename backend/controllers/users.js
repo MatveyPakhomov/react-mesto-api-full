@@ -32,9 +32,9 @@ function login(req, res, next) {
         .status(200)
         .cookie("jwt", token, {
           maxAge: 3600000 * 24 * 7,
-          secure: true,
-          sameSite: "none",
-          domain: ".nomoredomains.rocks",
+          secure: false,
+          // sameSite: "none",
+          // domain: ".nomoredomains.rocks",
         })
         .send({ message: "Аутентификация пройдена" })
         .end();
